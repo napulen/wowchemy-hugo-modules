@@ -13,6 +13,7 @@ import {
   initThemeVariation,
   renderThemeVariation,
   onMediaQueryListEvent,
+  getThemeMode,
 } from './wowchemy-theming';
 
 console.debug(`Environment: ${hugoEnvironment}`);
@@ -647,21 +648,20 @@ $(window).on('load', function () {
 });
 
 // Theme chooser events.
-let linkLight = document.querySelector('.js-set-theme-light');
 let linkDark = document.querySelector('.js-set-theme-dark');
-let linkAuto = document.querySelector('.js-set-theme-auto');
-if (linkLight && linkDark && linkAuto) {
-  linkLight.addEventListener('click', (event) => {
-    event.preventDefault();
-    changeThemeModeClick(0);
-  });
+if (linkDark) {
   linkDark.addEventListener('click', (event) => {
     event.preventDefault();
-    changeThemeModeClick(1);
-  });
-  linkAuto.addEventListener('click', (event) => {
-    event.preventDefault();
-    changeThemeModeClick(2);
+    let newMode = (getThemeMode() + 1) % 2;
+    if (newMode === 0) {
+      linkDark.childNodes[0].classList.remove("fa-sun");
+      linkDark.childNodes[0].classList.add("fa-moon");
+    }
+    else {
+      linkDark.childNodes[0].classList.remove("fa-moon");
+      linkDark.childNodes[0].classList.add("fa-sun");
+    }
+    changeThemeModeClick(newMode);
   });
 }
 

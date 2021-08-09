@@ -161,21 +161,8 @@
 
       {{ $show_day_night := site.Params.main_menu.show_day_night | default true }}
       {{ if and site.Params.day_night $show_day_night }}
-      <li class="nav-item dropdown theme-dropdown">
-        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="{{ i18n "theme_selector" | default "Display preferences" }}">
-          <i class="fas fa-moon" aria-hidden="true"></i>
-        </a>
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-item js-set-theme-light">
-            <span>{{ i18n "theme_light" | default "Light" }}</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-dark">
-            <span>{{ i18n "theme_dark" | default "Dark" }}</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-auto">
-            <span>{{ i18n "theme_auto" | default "Automatic" }}</span>
-          </a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link js-set-theme-dark" href="#" aria-label="{{ i18n "theme_selector" }}"><i class="fas fa-moon" aria-hidden="true"></i></a>
       </li>
       {{ end }}
 

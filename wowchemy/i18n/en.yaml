@@ -138,7 +138,7 @@
 
 - id: contact_message
   translation: Message
-  
+
 - id: contact_attachment
   translation: Attach file
 
@@ -262,4 +262,4 @@
 # Published with
 
 - id: published_with
-  translation: Published with {wowchemy} — the free, {repo_link}open source{/repo_link} website builder that empowers creators.
+  translation: Website template based George Cushen's {wowchemy}.

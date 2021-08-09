@@ -35,13 +35,22 @@ function initThemeVariation() {
 
   let isDarkTheme;
   let currentThemeMode = getThemeMode();
+  let linkDark = document.querySelector('.js-set-theme-dark');
   console.debug(`User's theme variation: ${currentThemeMode}`);
 
   switch (currentThemeMode) {
     case 0:
+      if (linkDark) {
+        linkDark.childNodes[0].classList.remove("fa-sun");
+        linkDark.childNodes[0].classList.add("fa-moon");
+      }
       isDarkTheme = false;
       break;
     case 1:
+      if (linkDark) {
+        linkDark.childNodes[0].classList.remove("fa-moon");
+        linkDark.childNodes[0].classList.add("fa-sun");
+      }
       isDarkTheme = true;
       break;
     default:
